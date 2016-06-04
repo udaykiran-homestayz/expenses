@@ -1,6 +1,47 @@
-<h1>welcome</h1>
+<article>
+
+<section>
+
+	<form action="/expenses" method="post">
+
+ 		  Purpose:<br>
+  <input type="radio" name="purpose" value="Travel">Travel <br>
+  <input type="radio" name="purpose" value="Expense on behalf of owner">Expense on behalf of owner<br>
+  <input type="radio" name="purpose" value="Agreement(stampduty/printing)">Agreement(stampduty/printing)<br>
+  <input type="radio" name="purpose" value="Referral Bonus">Referral Bonus<br>
+  <input type="radio" name="purpose" value="IT">IT<br>
+  <input type="radio" name="purpose" value="">Other <input type="text" name="purpose" /><br>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<br>
+
+  Amount: <input type="number" name="amount"><br>
+
+  For what: <input type="text" name="forwhat"><br>
+
+  Name: <select name="name">
+  				<option value="altaf">Altaf</option>
+  				<option value="sudhanshu">Sudhanshu</option>
+  				<option value="ayush">Ayush</option>
+
+        </select><br><br>
 
 
-<div ng-app="expenses">
- 	<p>My first expression: {{ 5 + 5 }}</p>
+
+      <button type="submit">Submit</button>
+
+ 	</form>
+
+  <p>
+  <%= flash[:success] unless flash[:success].blank? %>
+  <%= flash[:error] unless flash[:error].blank? %>
+</p>
+
+
+
+</section>
+</article>
+
+<br><br><br>
+
+<a href="/show">Click to view all the expenses</a>
+
+ 	
 </div>

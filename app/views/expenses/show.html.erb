@@ -1,0 +1,23 @@
+<h1>Showing all expenses</h1>
+
+<table style="width:70%; align:center">
+
+	
+<% @expenses.each do | expense | %> 
+
+<tr>
+
+<td><%= expense.purpose %></td>
+
+<td><%= expense.amount %></td>
+
+<td><%= expense.name %></td>
+
+	</tr>
+
+	
+<% end %>
+
+</table>
+
+
