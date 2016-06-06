@@ -9,6 +9,7 @@ class ExpensesController < ApplicationController
 	def create
 
 		@expense  = Expense.new(expense_params)
+		
 		if @expense.save
 
 			flash[:success] = "Successfully added new expense..."
@@ -43,7 +44,7 @@ class ExpensesController < ApplicationController
 
 	def expense_params
 
-		params.permit(:purpose, :forwhat,:name, :amount)
+		params.permit(:purpose, :forwhat,:name, :amount, :date, :time)
 
 	end
 	
