@@ -5,12 +5,18 @@
 	<form action="/expenses" method="post">
 
  		  Purpose:<br>
-  <input type="radio" name="purpose" value="Travel">Travel <br>
-  <input type="radio" name="purpose" value="Expense on behalf of owner">Expense on behalf of owner<br>
-  <input type="radio" name="purpose" value="Agreement(stampduty/printing)">Agreement(stampduty/printing)<br>
-  <input type="radio" name="purpose" value="Referral Bonus">Referral Bonus<br>
-  <input type="radio" name="purpose" value="IT">IT<br>
-  <input type="radio" name="purpose" value="">Other <input type="text" name="purpose" /><br>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<br>
+
+      <input id="purpose_travel" name="purpose" type="radio" value="Travel" />
+      <label for="purpose_travel">Travel</label><br>
+      <input id="purpose_expense_owner" name="purpose" type="radio" value="Expense on behalf of owner" />
+      <label for="purpose_expense_owner">Expense on behalf of owner</label><br>
+      <input id="purpose_agreement" name="purpose" type="radio" value="agreement(stampduty/printing)" />
+      <label for="purpose_agreement">Agreement(stampduty/printing)</label><br>
+      <input id="purpose_referral" name="purpose" type="radio" value="referral" />
+      <label for="purpose_referral">Referral Bonus</label><br>
+      <input id="purpose_it" name="purpose" type="radio" value="IT" />
+      <label for="purpose_it">IT</label><br><br>
+
 
   Amount: <input type="number" name="amount"><br>
 
