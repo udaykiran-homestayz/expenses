@@ -4,16 +4,24 @@ class ExpensesController < ApplicationController
 	 skip_before_action :verify_authenticity_token
 
 	def index
+
+				@expenses = Expense.all
 	end
 
 	def create
 
 		@expense  = Expense.new(expense_params)
 
-		uploaded_io = params[:file]
+    if params[:file]
+				uploaded_io = params[:file]
 	  		File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
-	    file.write(uploaded_io.read)
+	      file.write(uploaded_io.read)
+	  		end
+
 	  end
+
+
+
 		
 		if @expense.save
 
@@ -40,7 +48,7 @@ class ExpensesController < ApplicationController
 
 	def show
 
-		@expenses = Expense.all
+
 
 	end
 

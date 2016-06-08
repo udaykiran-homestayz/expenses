@@ -1,72 +1,50 @@
-<article>
+<h1>Showing all expenses</h1>
 
-<section>
+<table style="width:90%; align:center">
 
+	
+<% @expenses.each do | expense | %> 
 
-     <%= form_tag({action: :create}, multipart: true) do %>
+<tr>
 
+<td><%= expense.purpose %></td>
 
- 		  Purpose:<br>
+<td><%= expense.amount %></td>
 
-      <input id="purpose_travel" name="purpose" type="radio" value="Travel" />
-      <label for="purpose_travel">Travel</label><br>
-      <input id="purpose_expense_owner" name="purpose" type="radio" value="Expense on behalf of owner" />
-      <label for="purpose_expense_owner">Expense on behalf of owner</label><br>
-      <input id="purpose_agreement" name="purpose" type="radio" value="agreement(stampduty/printing)" />
-      <label for="purpose_agreement">Agreement(stampduty/printing)</label><br>
-      <input id="purpose_referral" name="purpose" type="radio" value="referral" />
-      <label for="purpose_referral">Referral Bonus</label><br>
-      <input id="purpose_it" name="purpose" type="radio" value="IT" />
-      <label for="purpose_it">IT</label><br><br>
+<td><%= expense.forwhat %></td>
 
+<td><%= expense.name %></td>
 
-  Amount: <input type="number" name="amount"><br>
+<td><%= expense.date %></td>
 
-  For what: <input type="text" name="forwhat"><br>
-
-  Name: <select name="name">
-  				<option value="altaf">Altaf</option>
-  				<option value="sudhanshu">Sudhanshu</option>
-  				<option value="ayush">Ayush</option>
-
-        </select><br><br>
-
-        Date:
-<!-- 
-        <input type="date" name="date"><br><br>
+<td><%= expense.time %></td>
 
 
-        Time:
+<% if expense.file == 'nil' %>
 
-        <input type="time" name="time"><br><br> -->
+<td>No file attached</td>
 
-     
-            <%= file_field_tag 'file' %>
-         
-
-          <br><br>
+<% else %>
+<td>	<a href="<%= expense.file %>" target="_blank">file</a> </td>
+<% end %>
 
 
+	</tr>
 
-      <button type="submit">Submit</button>
+	
+<% end %>
 
-       <% end %>
+</table>
 
- 	</form>
-
-  <p>
-  <%= flash[:success] unless flash[:success].blank? %>
-  <%= flash[:error] unless flash[:error].blank? %>
-</p>
-
-
-
-</section>
-</article>
 
 <br><br><br>
 
-<a href="/show">Click to view all the expenses</a>
+<%= link_to "Back to adding new expense", root_url %>
 
- 	
-</div>
+
+<br><br>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>   
+
+
+
+

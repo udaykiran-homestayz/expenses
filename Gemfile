@@ -33,6 +33,10 @@ gem 'pg'
 
 gem 'carrierwave'
 
+# For authentication
+
+gem 'devise'
+
 
 
 # Use ActiveModel has_secure_password
