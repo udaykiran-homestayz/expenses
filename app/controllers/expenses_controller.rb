@@ -9,6 +9,11 @@ class ExpensesController < ApplicationController
 	def create
 
 		@expense  = Expense.new(expense_params)
+
+		uploaded_io = params[:file]
+	  		File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+	    file.write(uploaded_io.read)
+	  end
 		
 		if @expense.save
 
@@ -22,6 +27,8 @@ class ExpensesController < ApplicationController
 		end
 
 	end
+
+
 
 	def new
 
@@ -44,7 +51,7 @@ class ExpensesController < ApplicationController
 
 	def expense_params
 
-		params.permit(:purpose, :forwhat,:name, :amount, :date, :time)
+		params.permit(:purpose, :forwhat,:name, :amount, :date, :time, :file)
 
 	end
 	

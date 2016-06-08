@@ -2,7 +2,9 @@
 
 <section>
 
-	<form action="/expenses" method="post">
+
+     <%= form_tag({action: :create}, multipart: true) do %>
+
 
  		  Purpose:<br>
 
@@ -30,17 +32,25 @@
         </select><br><br>
 
         Date:
-
+<!-- 
         <input type="date" name="date"><br><br>
 
 
         Time:
 
-        <input type="time" name="time"><br><br>
+        <input type="time" name="time"><br><br> -->
+
+     
+            <%= file_field_tag 'file' %>
+         
+
+          <br><br>
 
 
 
       <button type="submit">Submit</button>
+
+       <% end %>
 
  	</form>
 

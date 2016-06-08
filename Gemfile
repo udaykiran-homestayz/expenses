@@ -29,6 +29,10 @@ gem 'bower-rails'
 
 gem 'pg'
 
+# For file upload
+
+gem 'carrierwave'
+
 
 
 # Use ActiveModel has_secure_password

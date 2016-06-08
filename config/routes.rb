@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   post 'expenses' => 'expenses#create'
 
+  post 'upload' => 'expenses#upload'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
