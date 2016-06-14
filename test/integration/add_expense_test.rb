@@ -10,17 +10,5 @@ class AddExpenseTest < ActionDispatch::IntegrationTest
   end
 
 
-  test "valid expense entry" do
-
-  	get root_path
-
-  	@expense.name = 1
-
-  	assert_no_difference 'Expense.count', do
-
-  		
-
-  	end
-  end
 
 end

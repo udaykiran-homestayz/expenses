@@ -13,21 +13,13 @@
 
 <td><%= expense.forwhat %></td>
 
-<td><%= expense.name %></td>
-
 <td><%= expense.date %></td>
 
 <td><%= expense.time %></td>
 
+<td><%= expense.user_id %></td>
 
-<% if expense.file == 'nil' %>
-
-<td>No file attached</td>
-
-<% else %>
-<td>	<a href="<%= expense.file %>" target="_blank">file</a> </td>
-<% end %>
-
+<td><%= expense.uploads</td>
 
 	</tr>
 

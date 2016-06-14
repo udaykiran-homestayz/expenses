@@ -13,15 +13,7 @@ class ExpensesControllerTest < ActionController::TestCase
 
    # end
 
-   test "should get all expenses" do
-
-   	get :show
-
-   	assert_response :success
-   end
-
-   
-
+ 
 
 
 

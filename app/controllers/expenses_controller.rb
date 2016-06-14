@@ -10,12 +10,21 @@ class ExpensesController < ApplicationController
 
 	def create
 
-		@expense  = Expense.new(expense_params)
+		
+
+		@expense  = current_user.expenses.new(purpose: "Travel", amount: 1289, forwhat: "IT")
+
+		
 
     if params[:file]
+
 				uploaded_io = params[:file]
 	  		File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
 	      file.write(uploaded_io.read)
+
+	      @file = @expense.uploads.new(name: uploaded_io.original_filename)
+
+	      @file.save
 	  		end
 
 	  end
@@ -23,7 +32,7 @@ class ExpensesController < ApplicationController
 
 
 		
-		if @expense.save
+		if @expense.save 
 
 			flash[:success] = "Successfully added new expense..."
 
@@ -59,7 +68,7 @@ class ExpensesController < ApplicationController
 
 	def expense_params
 
-		params.permit(:purpose, :forwhat,:name, :amount, :date, :time, :file)
+		params.permit(:purpose, :forwhat,:name, :amount, :date, :time)
 
 	end
 	

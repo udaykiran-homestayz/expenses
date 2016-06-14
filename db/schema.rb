@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160608135128) do
+ActiveRecord::Schema.define(version: 20160609133341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,21 +20,23 @@ ActiveRecord::Schema.define(version: 20160608135128) do
     t.text     "purpose"
     t.float    "amount"
     t.text     "forwhat"
-    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date     "date"
     t.time     "time"
+    t.integer  "user_id"
   end
+
+  add_index "expenses", ["user_id"], name: "index_expenses_on_user_id", using: :btree
 
   create_table "uploads", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
+    t.integer  "expense_id"
   end
 
-  add_index "uploads", ["user_id"], name: "index_uploads_on_user_id", using: :btree
+  add_index "uploads", ["expense_id"], name: "index_uploads_on_expense_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -54,5 +56,6 @@ ActiveRecord::Schema.define(version: 20160608135128) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "uploads", "users"
+  add_foreign_key "expenses", "users"
+  add_foreign_key "uploads", "expenses"
 end

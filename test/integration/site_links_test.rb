@@ -5,10 +5,4 @@ class SiteLinksTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
 
-  test "Site links" do
-
-  	get root_path
-
-  	assert_template 'expenses/index'
-  end
 end
